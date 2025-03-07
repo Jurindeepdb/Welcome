@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Lost Cipher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
+    <style>
+     
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: url("backgrounds/bgwelcome.jpg"); /* Set your image here */
+            background-size: cover; /* Ensure the image covers the entire background */
+            background-position: center; /* Center the image */
+            background-attachment: fixed; /* Make the background fixed while scrolling */
+            color: #432818;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 3.9em;
+            padding-top: 20px;
+            margin-bottom: 29px;
+            color: #432818;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+            font-family: 'Special Elite', cursive;
+        }
+
+        p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-family: 'Special Elite', cursive;
+            font-weight: bolder;
+            text-shadow: 0px -4px 4px rgba(64, 40, 4, 0.5);
+        }
+
+        .start-btn {
+            font-family: 'Special Elite', cursive;
+            background-color: #99582A;
+            color: #F3D5B5;
+            padding: 15px 30px;
+            border: none;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 5px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+            margin-bottom: 60px;
+        }
+
+        .start-btn:hover {
+            background-color: #ffba08;
+            color: #432818;
+        }
+        
+        footer {
+            font-family: 'Special Elite', cursive;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            
+            color: #F3D5B5;
+            text-align: center;
+            font-size: 15px;
+            align-items: center;
+            /*background: linear-gradient(0deg, #432818, #432818);
+            box-shadow: 0px -4px 20px #432818;*/
+
+            display: flex;  /* Enables Flexbox */
+            justify-content: center; /* Centers horizontally */
+            align-items: center; /* Centers vertically */
+        }
+        footer p{
+            padding: 20px;
+            padding-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>The Lost Cipher</h1>
+        <div class="story">
+            <p>You are Nathan Drake, a young treasure hunter, following the trail of an ancient cipher left behind by Ferdinand Magellan’s crew. According to legend, Magellan’s expedition uncovered not just gold but a secret that could change history. Before his men could claim it, they encrypted its location in a complex cipher and scattered the pieces across the world.</p>
+            <p>Victor "Sully" Sullivan, your mentor, has intercepted a secret message from a rival treasure hunter—Gabriel Cortez—a ruthless collector who will stop at nothing to claim the treasure first. Sully believes the cipher leads to Magellan’s true lost treasure, hidden deep within the ruins of an undiscovered island.</p>
+            <a href="auction.html"></a>
+            <p>But there’s a problem. The cipher is incomplete, and its pieces are hidden in different locations, protected by ancient traps and riddles. You must solve each puzzle, avoid deadly adversaries, and uncover the final message before Cortez gets there first.</p>
+        </div>
+
+        <button class="start-btn" onclick="window.location.href='past.html'">Start Hunting</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 The Lost Cipher 🔑</p>
+    </footer>
+
+</body>
+</html>

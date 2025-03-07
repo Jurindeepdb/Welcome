@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auction House</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Ponomar&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+        .corinthia-regular {
+        font-family: "Corinthia", cursive;
+        font-weight: 400;
+        font-style: normal;
+        }
+
+        .corinthia-bold {
+        font-family: "Corinthia", cursive;
+        font-weight: 700;
+        font-style: normal;
+        }
+
+        .ponomar-regular {
+        font-family: "Ponomar", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        }
+
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(90deg, #310055, #4A0A77);
+            background-repeat: no-repeat; /* Prevent repeating the gradient */
+            background-attachment: fixed; /* Keep the background fixed while scrolling */
+            padding: 0;
+            margin: 0;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            justify-content: center;
+            padding-bottom: 70px;
+        }
+        .auction-item {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Pushes bid-section to the bottom */
+            
+        }
+        a {
+            text-decoration: none;
+        }
+        .bid-section {
+            margin-top: auto; /* Pushes it to the bottom */
+            font-family: "Ponomar", system-ui;
+        }
+
+        .bid-section input{
+            font-family: "Ponomar", system-ui;
+            height: 40px;
+            border-radius: 40px;
+            text-align: center;
+        }
+
+        .bid-section button{
+            background-color: #B3E9C7;
+            height: 40px;
+            width: 100px;
+            border-radius: 40px;
+            font-family: "Ponomar", system-ui;
+        }
+
+        .bid-section button:hover{
+            background-color: #ff0000;
+            cursor: pointer;
+        }
+
+        .auction-item p{
+            margin-top: 20px;
+            color: #ffffff;
+        }
+        
+        .auction-item img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            border-radius: 5px;
+        }
+        .auction-item img:hover{
+            transform: scale(1.05);
+        }
+
+        .auction-item h2{
+            color: #ff9e00;
+        }
+
+        footer {
+            font-family: 'Special Elite', cursive;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #1b1b1b;
+            color: #f5f5f5;
+            text-align: center;
+            padding-top: 10px;
+            font-size: 0.8em;
+            box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.5);
+        }
+        p {
+            font-size: 1.1em;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 10em;
+            color: #D283FF;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+            font-family: 'Corinthia', cursive; 
+            padding: 0px;
+            margin: 0px;
+        }
+        .intro {
+            width: 34%; /* Centers the div */
+            margin: 0 auto; /* Centers it */
+            text-align: center; /* Centers other text */
+            display: flex;
+            flex-direction: column; /* Ensures items stack */
+            align-items: center; /* Keeps other items centered */
+            position: relative;
+        }
+
+        .intro h3 {
+            align-self: flex-end; /* Moves h3 to the right */
+            text-align: right; /* Ensures text stays right-aligned */
+            
+            font-family: "Ponomar", system-ui;
+            color: #b8d0eb;
+        }
+
+        .line {
+            width: 100vw; /* Full screen width */
+            display: flex; /* Enables flexbox */
+            flex-direction: column; /* Stacks paragraphs */
+            justify-content: center; /* Centers content vertically (if needed) */
+            align-items: center; /* Centers text horizontally */
+            text-align: center; /* Ensures text stays centered */
+            padding: 30px 0px;
+        }
+        .line p {
+            padding: 0;
+            margin: 0;
+            color: #F0FFF1;
+        }
+    </style>
+</head>
+<body>
+    <div class="intro">
+        <h1>Augustine</h1>
+        <h3>Auction House</h3>
+    </div>
+    <div class="line">
+        <p>Here you can bid for the items you need in your quest. </p>
+        <p>Make the right moves and get your hands on the future you desire.</p>
+    </div>
+    
+    <div class="container">
+                
+        <div class='auction-item'>
+            <h2>Pirate's Golden Compass</h2>
+            <a href="treasure_hunt_messages\message_1.txt" download>
+                <img src="auction_pics\Pirate's Golden Compass.webp" alt='Pirate’s Golden Compass'>
+            </a>
+            <a href="" download>
+                <p>There lies a hidden treasure wherever this shall take you</p>
+            </a>
+            
+            <div class="bid-section">
+                <p>Current Bid: $750</p>
+                <input type="text" placeholder="Enter bid amount">
+                <button onclick="location.reload()">Place Bid</button>
+            </div>
+        </div>
+
+        <div class='auction-item'>
+            <h2>Pharaoh’s Serpent Bracelet</h2>
+            <a href="treasure_hunt_messages\message_2.txt" download>
+                <img src="auction_pics\Pharaoh's Serpent Bracelet.webp" alt='Pharaoh’s Golden Amulet'>
+            </a>
+            <a href="" download>
+                <p>The one adorned with this shall be in Anubis' protection</p>
+            </a>
+           
+            <div class="bid-section">
+                <p>Current Bid: $1,100</p>
+                <input type="text" placeholder="Enter bid amount">
+                <button onclick="location.reload()">Place Bid</button>
+            </div>
+        </div>
+        
+        <div class='auction-item'>
+            <h2>Viking War Horn</h2>
+            <a href="treasure_hunt_messages\message_3.txt" download>
+                <img src="auction_pics\ancient Viking war horn.webp" alt='Viking War Horn'>
+            </a>
+            <a href="" download>
+                <p>The amrs of conviction rise to sounds that haunt</p>
+            </a>
+            <div class="bid-section">
+                <p>Current Bid: $450</p>
+                <input type="text" placeholder="Enter bid amount">
+                <button onclick="location.reload()">Place Bid</button>
+            </div>
+        </div>
+        
+        <div class='auction-item'>
+            <h2>El Dorado Golden Coin</h2>
+            <a href="treasure_hunt_messages\message_4.txt" download>
+                <img src="auction_pics\El Dorado Golden Coin.webp" alt='El Dorado Idol'>
+            </a>
+            <a href="" download>
+                <p>The most valuable are the ones who open all doors</p>
+            </a>
+            <div class="bid-section">
+                <p>Current Bid: $3,500</p>
+                <input type="text" placeholder="Enter bid amount">
+                <button onclick="location.reload()">Place Bid</button>
+            </div>
+        </div>
+
+        <div class='auction-item'>
+            <h2>Atlantean Crystal Shard</h2>
+            <a href="treasure_hunt_messages\message_5.txt" download>
+                <img src="auction_pics\Atlantean Crystal Shard.webp" alt='Atlantean Crystal'>
+            </a>
+            <a href="" download>
+                <p>This shard from the lost city of Atlantis glows bright like the bearer</p>
+            </a>
+            <div class="bid-section">
+                <p>Current Bid: $1,750</p>
+                <input type="text" placeholder="Enter bid amount">
+                <button onclick="location.reload()">Place Bid</button>
+            </div>
+        </div>
+        
+        
+        <div class='auction-item'>
+            <h2>Templar Knight's Signet Ring</h2>
+            <a href="treasure_hunt_messages\message_6.txt" download>
+                <img src="auction_pics\Templar Knight's Signet Ring.webp" alt="Templar Knight's Signet Ring">
+            </a>
+            <a href="" download>
+                <p>The might of the Templar Knight bestowed upon thee</p>
+            </a>
+            <div class="bid-section">
+                <p>Current Bid: $2,800</p>
+                <input type="text" placeholder="Enter bid amount">
+                <button onclick="location.reload()">Place Bid</button>
+            </div>
+        </div>
+
+        <div class='auction-item'>
+            <h2>Magellan's Cross</h2>
+            <a href='treasure_hunt_messages\message_7.txt' download>
+                <img src="auction_pics\Magellan's Cross.webp" alt='Magellan’s Cross'>
+            </a>
+            <a href="" download>
+                <p>Death of him leads us to the next chapter</p>
+            </a>
+            <div class="bid-section">
+                <p>Current Bid: $500</p>
+                <input type="text" placeholder="Enter bid amount">
+                <button onclick="location.reload()">Place Bid</button>
+            </div>
+        </div>
+
+        <div class='auction-item'>
+            <h2>Cursed Aztec Idol</h2>
+            <a href="treasure_hunt_messages\message_8.txt" download>
+                <img src="auction_pics\Cursed Aztec Idol.webp" alt="Cursed Aztec Idol">
+            </a>
+            <a href="" download>
+                <p>Curses come in all shape and form</p>
+            </a>
+            <div class="bid-section">
+                <p>Current Bid: $2,800</p>
+                <input type="text" placeholder="Enter bid amount">
+                <button onclick="location.reload()">Place Bid</button>
+            </div>
+        </div>
+        <div class='auction-item'>
+            <h2>Mystic Jade Amulet</h2>
+            <a href="treasure_hunt_messages\message_9.txt" download>
+                <img src="auction_pics\Mystic Jade Amulet.webp" alt="Mystic Jade Amulet">
+            </a>
+            <a href="" download>
+                <p>Mystic forces hang over the destiny of the ones who can see</p>
+            </a>
+            <div class="bid-section">
+                <p>Current Bid: $2,800</p>
+                <input type="text" placeholder="Enter bid amount">
+                <button onclick="location.reload()">Place Bid</button>
+            </div>
+        </div>
+        <div class='auction-item'>
+            <h2>Lost Inca Sun Mask</h2>
+            <a href="treasure_hunt_messages\message_10.txt" download>
+                <img src="auction_pics\Lost Inca Sun Mask.webp" alt="Lost Inca Sun Mask">
+            </a>
+            <a href="" download>
+                <p>Hidden stays the face of the messiah that shows us the light</p>
+            </a>
+            <div class="bid-section">
+                <p>Current Bid: $2,800</p>
+                <input type="text" placeholder="Enter bid amount">
+                <button onclick="location.reload()">Place Bid</button>
+            </div>
+        </div>
+        <div class='auction-item'>
+            <h2>Byzantine Emperor's Seal</h2>
+            <a href="treasure_hunt_messages\message_11.txt" download>
+                <img src="auction_pics\Byzantine Emperor's Seal.webp" alt="Byzantine Emperor's Seal">
+            </a>
+            <a href="" download>
+                <p>All that's left are the signs of the revered</p>
+            </a>
+            <div class="bid-section">
+                <p>Current Bid: $2,800</p>
+                <input type="text" placeholder="Enter bid amount">
+                <button onclick="location.reload()">Place Bid</button>
+            </div>
+        </div>
+        <div class='auction-item'>
+            <h2>Runestone of the Forgotten King</h2>
+            <a href="treasure_hunt_messages\message_12.txt" download>
+                <img src="auction_pics\Runestone of the Forgotten King.webp" alt="Runestone of the Forgotten King">
+            </a>
+            <a href="" download>
+                <p>Endings are not endings, just mere bleak reminders of mortality</p>
+            </a>
+            <div class="bid-section">
+                <p>Current Bid: $2,800</p>
+                <input type="text" placeholder="Enter bid amount">
+                <button onclick="location.reload()">Place Bid</button>
+            </div>
+        </div>
+        
+    </div>
+    <footer>
+        <p>&copy; 2025 The Lost Cipher 🌊</p>
+    </footer>
+</body>
+</html>
