@@ -17,23 +17,21 @@
             background-position: center;
             background-attachment: fixed;
             color: #432818;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh; /* Allow scrolling when zoomed */
             text-align: center;
+            min-height: 100vh; /* Allows scrolling when zoomed */
+            display: block; /* Removes flexbox, so content starts at the top */
         }
-        
+
         .container {
-            position: relative;
+            max-width: 90%;
+            margin: 0px auto; /* Adds some spacing from the top */
             padding: 50px;
-            max-width: 90%; /* Ensure content doesn't overflow at high zoom */
         }
         
 
         h1 {
             font-size: 3.9em;
-            padding-top: 20px;
+            padding-top: 0px;
             margin-bottom: 29px;
             color: #432818;
             text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
