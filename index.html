@@ -12,23 +12,24 @@
             margin: 0;
             padding: 0;
             font-family: 'Roboto', sans-serif;
-            background: url("backgrounds/bgwelcome.jpg"); /* Set your image here */
-            background-size: cover; /* Ensure the image covers the entire background */
-            background-position: center; /* Center the image */
-            background-attachment: fixed; /* Make the background fixed while scrolling */
+            background: url("backgrounds/bgwelcome.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: #432818;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh; /* Allow scrolling when zoomed */
             text-align: center;
-            overflow: hidden;
         }
-
+        
         .container {
             position: relative;
             padding: 50px;
+            max-width: 90%; /* Ensure content doesn't overflow at high zoom */
         }
+        
 
         h1 {
             font-size: 3.9em;
@@ -80,6 +81,11 @@
             text-align: center;
             font-size: 15px;
             align-items: center;
+
+            background: url("backgrounds/bgwelcome.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             /*background: linear-gradient(0deg, #432818, #432818);
             box-shadow: 0px -4px 20px #432818;*/
 
