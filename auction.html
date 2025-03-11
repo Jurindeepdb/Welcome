@@ -214,6 +214,41 @@
                     });
                 });
             });
+            document.addEventListener("keydown", function(event) {
+            if (
+                event.key === "F12" || 
+                (event.ctrlKey && event.shiftKey && event.key === "I") || 
+                (event.ctrlKey && event.shiftKey && event.key === "J") || 
+                (event.ctrlKey && event.shiftKey && event.key === "C")
+            ) {
+                event.preventDefault();
+                return false;
+            }
+            });
+
+            // Disable Right-Click Menu
+            document.addEventListener("contextmenu", function(event) {
+            event.preventDefault();
+            });
+
+            // Optional: Prevent Dragging Elements (to see their code)
+            document.addEventListener("dragstart", function(event) {
+            event.preventDefault();
+            });
+
+            // Optional: Disable Console Shortcut (Ctrl+Shift+J)
+            window.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && event.key === 'u') {
+                event.preventDefault();
+            }
+            });
+
+            // Optional: Block "View Page Source" (Ctrl+U)
+            document.addEventListener("keydown", function(event) {
+            if (event.ctrlKey && event.key.toLowerCase() === "u") {
+                event.preventDefault();
+            }
+               });
         </script>
     
         <div class='auction-item'>
